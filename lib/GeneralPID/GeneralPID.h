@@ -1,6 +1,10 @@
 #ifndef GENERAL_PID_H // diretiva de inclusão condicional para evitar múltiplas inclusões do mesmo arquivo de cabeçalho
 #define GENERAL_PID_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
 
 typedef struct GeneralPID
@@ -30,5 +34,9 @@ int GeneralPID_setSetpoint(GeneralPID_t *self, float setpoint);
 float GeneralPID_execute(GeneralPID_t *self, float measurement);
 GeneralPID_t *GeneralPID_creator(float gn1, float gn2, float gn3, float gd1, float gd2, float gd3);
 int GeneralPID_destructor(GeneralPID_t *self);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // fecha a diretiva de inclusão condicional

@@ -1,5 +1,9 @@
 #include "GeneralPID.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 GeneralPID_t *GeneralPID_creator(float gn1, float gn2, float gn3, float gd1, float gd2, float gd3)
 {
   GeneralPID_t *newGeneralPID = (GeneralPID_t *)malloc(sizeof(GeneralPID_t));
@@ -42,3 +46,7 @@ float GeneralPID_execute(GeneralPID_t *self, float measurement)
   self->output_n1 = output;
   return output;
 }
+
+#ifdef __cplusplus
+}
+#endif
