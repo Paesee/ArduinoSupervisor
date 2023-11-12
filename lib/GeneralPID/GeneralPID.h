@@ -14,12 +14,10 @@ typedef struct GeneralPID
   //setpoint for control routine
   float setpoint;
   //gain definitions
-  float num_gain_1;
-  float num_gain_2;
-  float num_gain_3;
-  float den_gain_1;
-  float den_gain_2;
-  float den_gain_3;
+  float gain_1;
+  float gain_2;
+  float gain_3;
+  float gain_4;
   //variables used to store past erros and outputs
   float error_n1;
   float error_n2;
@@ -32,7 +30,7 @@ typedef struct GeneralPID
 
 int GeneralPID_setSetpoint(GeneralPID_t *self, float setpoint);
 float GeneralPID_execute(GeneralPID_t *self, float measurement);
-GeneralPID_t *GeneralPID_creator(float gn1, float gn2, float gn3, float gd1, float gd2, float gd3);
+GeneralPID_t *GeneralPID_creator(float g1, float g2, float g3, float g4);
 int GeneralPID_destructor(GeneralPID_t *self);
 
 #ifdef __cplusplus
