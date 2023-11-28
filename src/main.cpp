@@ -14,7 +14,6 @@ void setup(void)
   configADC(A5);
   // PWM: setup registers to generate PWM signal on PD5
   configPWM();
-
   // ModbusRTU setup
   // Inicializa o servidor Modbus RTU com o endereco de escravo SLAVE_ID
   if (!ModbusRTUServer.begin(SLAVE_ID, BAUDRATE, UART_CONFIG))

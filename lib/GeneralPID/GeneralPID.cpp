@@ -19,6 +19,7 @@ extern "C"
     newGeneralPID->output_n1 = 0;
     newGeneralPID->output_n2 = 0;
     newGeneralPID->setSetpoint = GeneralPID_setSetpoint;
+    newGeneralPID->setBoundaries = GeneralPID_setBoundaries;
     newGeneralPID->execute = GeneralPID_execute;
     return newGeneralPID;
   }
@@ -32,6 +33,13 @@ extern "C"
   int GeneralPID_setSetpoint(GeneralPID_t *self, float setpoint)
   {
     self->setpoint = setpoint;
+    return 0;
+  }
+
+  int GeneralPID_setBoundaries(GeneralPID_t *self, float max, float min)
+  {
+    self->max_output = max;
+    self->min_output = min;
     return 0;
   }
 
